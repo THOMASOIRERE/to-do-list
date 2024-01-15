@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    /* Add some basic styling for better presentation */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Todo List</h1>
+  
+  <input type="text" id="taskInput" placeholder="Add a new task">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      // Get the input value
+      var taskInput = document.getElementById('taskInput');
+      var taskText = taskInput.value;
+
+      // Check if the input is not empty
+      if (taskText.trim() !== '') {
+        // Create a new list item
+        var listItem = document.createElement('li');
+        listItem.textContent = taskText;
+
+        // Append the new list item to the task list
+        var taskList = document.getElementById('taskList');
+        taskList.appendChild(listItem);
+
+        // Clear the input field
+        taskInput.value = '';
+      } else {
+        alert('Please enter a task.');
+      }
+    }
+  </script>
+
+</body>
+</html>
